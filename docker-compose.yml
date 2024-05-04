@@ -1,0 +1,49 @@
+version: "3.8"
+
+
+services:
+ client:
+   build:
+     context: ./client
+   ports:
+     - "3000:3000"
+   depends_on:
+     - backend
+   environment:
+     - REACT_APP_URL=http://backend:5000
+   image: melisaopiyo/yolomy-client:v1.0.0
+   networks:
+     - yolomy-network
+
+
+ backend:
+   build:
+     context: ./backend
+   ports:
+     - "5000:5000"
+   depends_on:
+     - mongo
+   environment:
+     - MONGODB_URI=mongodb://mongo:27017/yolo
+   image: melisaopiyo/yolomy-backend:v1.0.0
+   networks:
+     - yolomy-network
+
+
+ mongo:
+   image: mongo
+   ports:
+     - "27017:27017"
+   volumes:
+     - mongodbdata:/data/db
+   networks:
+     - yolomy-network
+
+
+volumes:
+ mongodbdata:
+
+
+networks:
+ yolomy-network:
+   driver: bridge
