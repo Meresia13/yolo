@@ -1,23 +1,56 @@
+# Description
+This is a simple web application for managing products. Users can add, view, update, and delete products through a user-friendly interface.
+
 # Requirements
 Make sure that you have the following installed:
-- [node](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04) 
-- npm 
-- [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/) and start the mongodb service with `sudo service mongod start`
 
-## Navigate to the Client Folder 
- `cd client`
+-   [node](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04)
+-   npm
+-   [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/) and start the mongodb service with `sudo service mongod start`
 
-## Run the folllowing command to install the dependencies 
- `npm install`
+## Setup Instructions
 
-## Run the folllowing to start the app
- `npm start`
+1.  Clone the repository:  
+    git@github.com:Meresia13/yolo.git
+    
+2.  Navigate to the client folder:  
+    `cd client`
+    
+3.  Install dependencies:  
+    `npm install`
+    
+4.  Start the client app:  
+    `npm start`
+    
+5.  Open a new terminal and navigate to the backend folder:  
+    `cd ../backend`
+    
+6.  Install backend dependencies:  
+    `npm install`
+    
+7.  Start the backend server:  
+    `npm start`
+    
+8.  Access the application at [http://localhost:3000](http://localhost:3000) in your web browser.
+    
 
-## Open a new terminal and run the same commands in the backend folder
- `cd ../backend`
+## Features
 
- `npm install`
+-   Add new products with name, description, and price
+-   View a list of all products
+-   Update existing products
+-   Delete products
 
- `npm start`
+## Usage
 
- ### Go ahead a nd add a product (note that the price field only takes a numeric input)
+-   Add a product: Fill out the form with the product details and click "Add Product".
+-   View products: See the list of products displayed on the homepage.
+-   Update a product: Click on the "Edit" button next to a product and make changes in the form.
+-   Delete a product: Click on the "Delete" button next to a product to remove it from the list.
+
+**Note:** The price field only accepts numeric input.
+
+## Folder Structure
+
+-   **client/**: Contains the frontend code.
+-   **backend/**: Contains the backend code.
