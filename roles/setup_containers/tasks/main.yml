@@ -1,0 +1,16 @@
+---
+# tasks file for setup_containers
+- name: Copy Docker Compose file
+  copy:
+    src: docker-compose.yml
+    dest: /var/www/yolomy/docker-compose.yml
+
+- name: Pull Docker images
+  shell: docker-compose pull
+  args:
+    chdir: /var/www/yolomy
+
+- name: Build and start Docker containers
+  shell: docker-compose up -d --build
+  args:
+    chdir: /var/www/yolomy
