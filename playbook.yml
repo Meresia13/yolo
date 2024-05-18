@@ -1,0 +1,32 @@
+---
+- hosts: all
+  become: yes
+  vars_files:
+    - vars/main.yml
+
+  tasks:
+    - name: Update and upgrade apt packages
+      apt:
+        update_cache: yes
+        upgrade: dist
+
+    - name: Install Docker
+      include_role:
+        name: docker
+
+    - name: Clone GitHub repository
+      git:
+        repo: 'https://github.com/Meresia13/yolo'
+        dest: /var/www/yolomy
+
+    - name: Set up Docker containers
+      include_role:
+        name: setup_containers
+
+- name: Ensure application is running
+  hosts: all
+  tasks:
+    - name: Start the application
+      shell: docker-compose up -d
+      args:
+        chdir: /var/www/yolomy
