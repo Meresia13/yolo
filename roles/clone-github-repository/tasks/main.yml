@@ -1,0 +1,6 @@
+---
+# tasks file for clone-github-repository
+   - name: Clone GitHub repository
+     git:
+       repo: 'https://github.com/Meresia13/yolo'
+       dest: /var/www/yolomy
