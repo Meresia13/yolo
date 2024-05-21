@@ -4,10 +4,10 @@
   vars_files:
     - vars/main.yml
 
-  tasks:
-    - name: test-connectivity
-    - name: update-server
-    - name: docker-setup
-    - name: clone-github-repository
-    - name: setup-containers
+  roles:
+    - test-connectivity
+    - update-server
+    - docker-setup
+    - clone-github-repository
+    - setup-containers
 
