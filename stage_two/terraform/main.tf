@@ -5,8 +5,8 @@ provider "aws" {
 }
 
 resource "aws_security_group" "server_sg" {
-  name        = var.security_group_name
-  description = var.security_group_description
+  name_prefix = "server_sg_"
+  description = "Security group for the EC2 instances"
 
   ingress {
     from_port   = 22
@@ -44,15 +44,14 @@ resource "aws_security_group" "server_sg" {
   }
 
   tags = {
-    Name = var.security_group_name
+    Name = "server_sg"
   }
 }
 
 resource "aws_instance" "yolo" {
-  ami           = var.ami_id
-  instance_type = var.instance_type
+  ami             = "ami-0cd59ecaf368e5ccf"
+  instance_type   = "t2.micro"
   security_groups = [aws_security_group.server_sg.name]
-
   tags = {
     Name = "yolo"
   }
