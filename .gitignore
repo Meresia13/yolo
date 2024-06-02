@@ -1,1 +1,2 @@
 stage_two/terraform/.terraform/providers/registry.terraform.io/hashicorp/aws/5.50.0/linux_amd64/terraform-provider-aws_v5.50.0_x5
+stage_two/terraform/terraform.tfvars
