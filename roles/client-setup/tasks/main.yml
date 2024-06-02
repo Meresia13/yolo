@@ -1,0 +1,13 @@
+# tasks file for client-setup
+- name: Set up and run client container
+  docker_container:
+    name: client
+    image: melisaopiyo/yolomy-client:v1.0.0
+    state: started
+    restart_policy: always 
+    ports:
+      - "3000:3000"
+    env:
+      REACT_APP_URL: "http://backend:5000"
+    links:
+      - backend

@@ -1,0 +1,12 @@
+---
+# tasks file for mongodb-setup
+- name: Run MongoDB Container
+  docker_container:
+    name: mongo
+    image: mongo
+    state: started
+    restart_policy: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - "mongodbdata:/data/db"
