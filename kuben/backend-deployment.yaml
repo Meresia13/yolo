@@ -4,7 +4,7 @@ metadata:
   name: backend-deployment
   namespace: yolo
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: backend
