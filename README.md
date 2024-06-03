@@ -107,3 +107,73 @@ Create storage-class.yaml and mongo-pvc.yaml for Persistent Volume and Claim, re
 > \`kubectl apply -f storage-class.yaml -n yolo\`
 
 > \`kubectl apply -f mongo-pvc.yaml -n yolo\`
+
+*   **Create StatefulSet for MongoDB:**
+
+Create mongo-statefulset.yaml for StatefulSet and apply it:
+
+> \`apiVersion: apps/v1\`
+
+> \`kind: StatefulSet\`
+
+> \`...\`
+
+Apply the StatefulSet using:
+
+> \`kubectl apply -f mongo-statefulset.yaml -n yolo\`
+
+*   **Create Deployments for Backend and Client:**
+
+Create backend-deployment.yaml and client-deployment.yaml for Deployments and apply them. Example backenddeployment.yaml:
+
+> \`apiVersion: apps/v1\`
+
+> \`kind: Deployment\`
+
+> \`...\`
+
+Apply the Deployment using:
+
+> \`kubectl apply -f backend-deployment.yaml -n yolo\`
+
+*   **Create Services to Expose the Pods:**
+
+Create backend-service.yaml and frontend-service.yaml for Services and apply them. Example backend-service.yaml:
+
+> \`apiVersion: v1\`
+
+> \`kind: Service\`
+
+> \`...\`
+
+Apply the Service using:
+
+> \`kubectl apply -f backend-service.yaml -n yolo\`
+
+## **Step 5: Verify Deployment**
+
+*   **Check Pod Status:**
+
+> \`kubectl get pods -n yolo\`
+
+*   **Obtain External IPs:**
+
+> \`kubectl get svc -n yolo\`
+
+**Accessing the Application**
+
+*   Access the application externally via - http://34.77.222.244
+
+**Features**
+
+*   Add new products with name, description, and price.
+*   View a list of all products.
+*   Update existing products.
+*   Delete products.
+
+**Usage**
+
+*   Add a product: Fill out the form with the product details and click "Add Product".
+*   View products: See the list of products displayed on the homepage.
+*   Update a product: Click on the "Edit" button next to a product and make changes in the form.
+*   Delete a product: Click on the "Delete" button next to a product to remove it from the list.
