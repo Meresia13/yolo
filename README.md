@@ -51,18 +51,16 @@ Make sure that you have the following installed:
 **Note:** The price field only accepts numeric input.
 
 **Setting Up Kubernetes Deployment**
+  
 
-**Step 1: Activate Kubernetes Engine API**
+# **Setting Up Kubernetes Deployment**
 
-Enable the Kubernetes Engine API
+## **Step 1: Activate Kubernetes Engine API**
 
-**Step 2: Create Google Kubernetes Engine (GKE) Cluster**
+*   Enable the Kubernetes Engine API
 
-Generate a GKE Cluster with the following command:
+## **Step 2: Create Google Kubernetes Engine (GKE) Cluster**
 
-gcloud container clusters create yolo-cluster --num-nodes=3 --zone europe-west1-b
+*   Generate a GKE Cluster with the following command:
 
-## Folder Structure
-
--   **client/**: Contains the frontend code.
--   **backend/**: Contains the backend code.
+[gcloud container clusters create yolo-cluster --num-nodes=3 --zone europe-west1-b](gcloud container clusters create yolo-cluster --num-nodes=3 --zone europe-west1-b)
