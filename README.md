@@ -52,10 +52,6 @@ Make sure that you have the following installed:
 
 # **Setting Up Kubernetes Deployment**
 
-  
-
-# **Setting Up Kubernetes Deployment**
-
 ## **Step 1: Activate Kubernetes Engine API**
 
 *   Enable the Kubernetes Engine API
@@ -64,4 +60,50 @@ Make sure that you have the following installed:
 
 *   Generate a GKE Cluster with the following command:
 
-\`gcloud container clusters create yolo-cluster --num-nodes=3 --zone europe-west1-b\`
+> \`gcloud container clusters create yolo-cluster --num-nodes=3 --zone europe-west1-b\`
+
+*   Retrieve Cluster Credentials:
+
+> \`gcloud container clusters get-credentials yolo-cluster --zone europe-west1-b\`
+
+## **Step 3: Prepare Docker Images**
+
+Build and push Docker images:
+
+*   Navigate to the backend directory and run:
+
+> \`docker build -t gcr.io/my-yolo-project-2024/yolomy-backend:latest .\`
+
+> \`docker push gcr.io/my-yolo-project-2024/yolomy-backend:latest\`
+
+*   Navigate to the client directory and execute:
+
+> \`docker build -t gcr.io/my-yolo-project-2024/yolomy-client:latest . \`
+
+> \`docker push gcr.io/my-yolo-project-2024/yolomy-client:latest\`
+
+## **Step 4: Create Kubernetes Manifests**
+
+*   **Create Namespace:**
+
+Create a namespace.yaml file and apply it:
+
+> \`apiVersion: v1\`
+
+> \`kind: Namespace\`
+
+> \`metadata:\`
+
+>   \`name: yolo\`
+
+Apply the namespace using:
+
+> \`kubectl apply -f namespace.yaml\`
+
+*   **Create Storage Class and Persistent Volume Claim for MongoDB:**
+
+Create storage-class.yaml and mongo-pvc.yaml for Persistent Volume and Claim, respectively, and apply them:
+
+> \`kubectl apply -f storage-class.yaml -n yolo\`
+
+> \`kubectl apply -f mongo-pvc.yaml -n yolo\`
